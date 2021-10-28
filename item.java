@@ -21,11 +21,17 @@ public class item
         weight = grams;
     }
     
+    /**
+     * @return String of the item description and weight
+     */
     public String getInfo()
     {
-        return description + " " + weight;
+        return "It is a" + description + " and weighs " + weight + " grams";
     }
     
+    /**
+     * @return int of the items weight
+     */
     public int getWeight()
     {
         return weight;
