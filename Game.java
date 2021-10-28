@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -21,12 +22,13 @@ public class Game
     private Room currentRoom;
     private Room previousRoom;
     private Player player;
-    
+    private ArrayList<NPC> npcs;
     /**
      * Create the game and initialise its internal map.
      */
     public Game() 
     {
+        npcs = new ArrayList<NPC>();
         createRooms();
         parser = new Parser();
         player = new Player(5, this);
@@ -38,14 +40,14 @@ public class Game
     private void createRooms()
     {
         Room outside, theater, pub, lab, office;
-      
+
         // create the rooms
         outside = new Room("outside the main entrance of the university");
         theater = new Room("in a lecture theater");
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
-        
+
         // initialise room exits
         outside.setExit("east", theater);
         outside.setExit("south", lab);
@@ -61,9 +63,12 @@ public class Game
         office.setExit("west", lab);
 
         outside.addItem("book", 13);
-        
+
         currentRoom = outside;  // start game outside
         previousRoom = outside;
+
+        //Add NPCs
+        npcs.add(new NPC("Joe", "Dialog", office));
     }
 
     /**
@@ -75,7 +80,7 @@ public class Game
 
         // Enter the main command loop.  Here we repeatedly read commands and
         // execute them until the game is over.
-                
+
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
@@ -95,6 +100,13 @@ public class Game
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
+        for(NPC npc : npcs)
+        {
+            if(npc.getRoom() == currentRoom)
+            {
+                System.out.print(npc.getName() + " is standing there, ");
+            }
+        }
     }
 
     /**
@@ -124,15 +136,19 @@ public class Game
             case LOOK:
                 look();
                 break;
-                
+
             case INVENTORY:
                 checkInventory();
                 break;
-                
+
             case GOBACK:
                 goBack();
                 break;
-                
+
+            case TALK:
+                talkWithNPC();
+                break;
+
             case QUIT:
                 wantToQuit = quit(command);
                 break;
@@ -180,6 +196,13 @@ public class Game
             previousRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            for(NPC npc : npcs)
+            {
+                if(npc.getRoom() == currentRoom)
+                {
+                    System.out.print(npc.getName() + " is standing there, ");
+                }
+            }
         }
     }
 
@@ -198,7 +221,7 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
-    
+
     /**
      * Looks around the room again
      */
@@ -206,7 +229,7 @@ public class Game
     {
         System.out.println(currentRoom.getLongDescription());
     }
-    
+
     /**
      * Checks your inventory
      */
@@ -214,7 +237,7 @@ public class Game
     {
         System.out.println("Your inventory is currently empty");
     }
-    
+
     /**
      * Goes back one room, and only one room
      */
@@ -224,6 +247,7 @@ public class Game
         currentRoom = previousRoom;
         System.out.println(currentRoom.getLongDescription());
     }
+
     /**
      * Go to this room when the player dies
      */
@@ -232,5 +256,19 @@ public class Game
         currentRoom = new Room("You have died.");
         previousRoom = currentRoom;
         look();
+    }
+
+    /**
+     * Talk with an NPC if present
+     */
+    private void talkWithNPC()
+    {
+        for(NPC npc : npcs)
+        {
+            if(npc.getRoom() == currentRoom)
+            {
+                npc.talk();
+            }
+        }
     }
 }

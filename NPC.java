@@ -8,16 +8,44 @@ import java.util.Random;
 public class NPC
 {
     private String dialog;
+    private String name;
     private Room currentRoom;
-    private Game game;
     
     /**
      * Constructor for objects of class NPC
+     * @param newName the NPC's name
+     * @param advice the NPC's dialog
+     * @param startingRoom the NPC's starting room
      */
-    public NPC(Game controller, String advice, Room startingRoom)
+    public NPC(String newName, String advice, Room startingRoom)
     {
+        name = newName;
         dialog = advice;
-        game = controller;
         currentRoom = startingRoom;
+    }
+    
+    /**
+     * Prints out the NPC's name and dialog
+     */
+    public void talk()
+    {
+        System.out.println(name + ":");
+        System.out.println(dialog);
+    }
+    
+    /**
+     * @return the NPC's current room
+    */
+    public Room getRoom()
+    {
+        return currentRoom;
+    }
+    
+    /**
+     * @return the NPC's name
+     */
+    public String getName()
+    {
+        return name;
     }
 }
