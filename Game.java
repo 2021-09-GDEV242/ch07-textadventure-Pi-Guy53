@@ -198,7 +198,6 @@ public class Game
     
     /**
      * Checks your inventory
-     * 
      */
     private void checkInventory()
     {
