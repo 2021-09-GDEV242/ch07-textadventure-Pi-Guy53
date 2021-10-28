@@ -119,6 +119,10 @@ public class Game
                 look();
                 break;
                 
+            case INVENTORY:
+                checkInventory();
+                break;
+                
             case QUIT:
                 wantToQuit = quit(command);
                 break;
@@ -183,11 +187,21 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
+    
     /**
      * Looks around the room again
      */
     private void look()
     {
         System.out.println(currentRoom.getLongDescription());
+    }
+    
+    /**
+     * Checks your inventory
+     * 
+     */
+    private void checkInventory()
+    {
+        System.out.println("Your inventory is currently empty");
     }
 }
