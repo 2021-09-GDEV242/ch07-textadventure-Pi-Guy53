@@ -1,6 +1,7 @@
 
 /**
- * Write a description of class item here.
+ * The Item class stores the data for item objects, this currently includes a 
+ * description, and a weight in grams.
  *
  * @author Mihail Vaporakis
  * @version 2021.10.28

@@ -68,7 +68,7 @@ public class Room
      * Return a description of the room in the form:
      *     You are in the kitchen.
      *     Exits: north west
-     *     Items present: book wrench
+     *     Items present: It is a book and weights 13 grams
      * @return A long description of this room
      */
     public String getLongDescription()
