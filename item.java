@@ -5,17 +5,17 @@
  * @author Mihail Vaporakis
  * @version 2021.10.28
  */
-public class item
+public class Item
 {
     private String description;
     private int weight;
     
     /**
      * Constructor for objects of class item
-     * @param description String what the item is/looks like
-     * @param weight int how heavy the item is
+     * @param itemInfo String what the item is/looks like
+     * @param grams int how heavy the item is in grams
      */
-    public item(String itemInfo, int grams)
+    public Item(String itemInfo, int grams)
     {
         description = itemInfo;
         weight = grams;
@@ -26,7 +26,7 @@ public class item
      */
     public String getInfo()
     {
-        return "It is a" + description + " and weighs " + weight + " grams";
+        return "It is a " + description + " that weighs " + weight + " grams.";
     }
     
     /**
