@@ -19,7 +19,8 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-        
+    private Room previousRoom;
+    
     /**
      * Create the game and initialise its internal map.
      */
@@ -60,6 +61,7 @@ public class Game
         outside.addItem("book", 13);
         
         currentRoom = outside;  // start game outside
+        previousRoom = outside;
     }
 
     /**
@@ -125,6 +127,10 @@ public class Game
                 checkInventory();
                 break;
                 
+            case GOBACK:
+                goBack();
+                break;
+                
             case QUIT:
                 wantToQuit = quit(command);
                 break;
@@ -169,6 +175,7 @@ public class Game
             System.out.println("There is no door!");
         }
         else {
+            previousRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
@@ -204,5 +211,15 @@ public class Game
     private void checkInventory()
     {
         System.out.println("Your inventory is currently empty");
+    }
+    
+    /**
+     * Goes back one room, and only one room
+     */
+    private void goBack()
+    {
+        previousRoom = currentRoom;
+        currentRoom = previousRoom;
+        System.out.println(currentRoom.getLongDescription());
     }
 }
