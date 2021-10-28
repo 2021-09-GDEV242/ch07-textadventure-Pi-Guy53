@@ -32,7 +32,9 @@ public class Player
         System.out.println("You have " + health + " HP left");
         checkDeath();
     }
-    
+    /**
+     * Checks if the player health has dropped below zero, if it has it sends a death message.
+     */
     private void checkDeath()
     {
         if(health <= 0)
