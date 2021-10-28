@@ -20,6 +20,7 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Room previousRoom;
+    private Player player;
     
     /**
      * Create the game and initialise its internal map.
@@ -28,6 +29,7 @@ public class Game
     {
         createRooms();
         parser = new Parser();
+        player = new Player(5, this);
     }
 
     /**
@@ -221,5 +223,14 @@ public class Game
         previousRoom = currentRoom;
         currentRoom = previousRoom;
         System.out.println(currentRoom.getLongDescription());
+    }
+    /**
+     * Go to this room when the player dies
+     */
+    public void playerDeath()
+    {
+        currentRoom = new Room("You have died.");
+        previousRoom = currentRoom;
+        look();
     }
 }

@@ -10,12 +10,14 @@ public class Player
     private int health;
     private ArrayList<Item> inventory;  //Might not be used at this time
     private int carryWeight;            //Will be used with the inventory
+    private Game game;
     /**
      * Constructor for objects of class Player
      */
-    public Player(int HP)
+    public Player(int HP, Game controller)
     {
         health = HP;
+        game = controller;
     }
     
     /**
@@ -28,12 +30,15 @@ public class Player
         health = health - dmg;
         
         System.out.println("You have " + health + " HP left");
-        
-        
+        checkDeath();
     }
     
     private void checkDeath()
     {
-        
+        if(health <= 0)
+        {
+            System.out.println("You collapse to the floor as your vision fades to black");
+            game.playerDeath();
+        }
     }
 }
