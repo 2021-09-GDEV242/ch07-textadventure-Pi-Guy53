@@ -44,112 +44,112 @@ public class Game
         Room i9, k9, l9, g11, i11;
         Room k11, g13, i13, k13, i15;
         Room m8, m10, n9, m7;
-        
+
         // create the rooms
         start = new Room("dropped inside of a small metal room. Glowing blue lights flicker along the ceiling.");
         i3 = new Room("in a dead end.");
         c5 = new Room("in a dead end.");
         e5 = new Room("in a short section of hallway. .\n A set of 7 long parallel gouges mar the east wall...");
         g5 = new Room("in a large obervetory");
-        
+
         i5 = new Room("in a tee junction, three doors lead off, other than that, the room is bare.");
         k5 = new Room("in what appears to be a barracks. You can hear a soft growl .\n coming from the back corrner.");
         g7 = new Room("what looks like a normal tee juntion, but only the east, .\n and west doors can open. The north door is locked.");
         i7 = new Room("a dark hall, the lighting in this section appears to be offline,.\n and details are hard to make out.");
         k7 = new Room("a Server farm. The hum of the fans provides a constent low drone. .\n What would need this much prossesing though?");
-        
+
         i9 = new Room("locked out of the south doorway, it just won't budge. .\n The lights have dimmed slightly from the previous room, .\n but you can still barely see.");
         k9 = new Room("in a work room, there is a computer terminal on the desk .\n in front of you. The lights along its side shows it .\n is operational.");
-        l9 = new Room("logged into the computer, there are only 3 apps available though");
+        l9 = new Room("logged into the computer. The background is of the night sky, but with 5 moons. .\n there are only 3 apps available though");
         g11 = new Room("startled by a dark form in the hallway. .\n Despite the electice lights, there are still dark pockets of shadow.");
         i11 = new Room("walking though a smaller hallway than then before, .\n barely half a meter wide. .\n but you can see 7 parallel gouges on the walls an ceiling .\n each at least 3 cm deep.");
-        
-        k11 = new Room("");
-        g13 = new Room("");
-        i13 = new Room("");
-        k13 = new Room("");
-        i15 = new Room("");
-        
-        m8 = new Room("");
-        m10 = new Room("");
-        n9 = new Room("");
-        m7 = new Room("");
-        
+
+        k11 = new Room("what looks like a janitors closet.");
+        g13 = new Room("in an empty hanger. There are no ships, but the though the .\n shielded opening you can see a dying star.");
+        i13 = new Room("in yet another 4 way hub. The lights in here are orange rather than light blue.");
+        k13 = new Room("unsure of what you are seeing. There looks to be a tree .\n made of rock crystal growing out of the floor.");
+        i15 = new Room("in a medical bay. Locked cabinets line the walls.");
+
+        m8 = new Room("looking are an ancient email server. Cobwebs dust most of the messages... .\n there is one newer message though");
+        m10 = new Room("opening the Ren'py application. .\n there are no files present");
+        n9 = new Room("now finidng out that a space ship does not have the internet .\n needed to run a web browser.");
+        m7 = new Room("reading the newst email, it reads. .\n \"What are you doing on my ship.\"");
+
         // initialise room exits
         start.setExit("north", i9);
         start.setExit("west", g7);
         start.setExit("east", g11);
-        
+
         i3.setExit("east", i5);
-        
+
         c5.setExit("north", e5);
-        
+
         e5.setExit("north", g5);
         e5.setExit("south", c5);
-        
+
         g5.setExit("east", g7);
         g5.setExit("south", e5);
-        
+
         i5.setExit("north", k5);
         i5.setExit("east", i7);
         i5.setExit("west", i3);
-        
+
         k5.setExit("south", i5);
-        
+
         g7.setExit("east", start);
         g7.setExit("west", g5);
         //no north door, "Its a trap!"
-        
+
         i7.setExit("south", g7);
         i7.setExit("east", i9);
         i7.setExit("west", i5);
-        
+
         k7.setExit("east", k9);
-        
+
         i9.setExit("north", k9);
         i9.setExit("west", i7);
         //no south door, "Its a trap!"
-        
-        k9.setExit("use computer", l9);
+
+        k9.setExit("computer", l9);
         k9.setExit("south", i9);
         k9.setExit("east", k11);
         k9.setExit("west", k7);
-        
+
         l9.setExit("exit", k9);
         l9.setExit("mail", m8);
         l9.setExit("renpy", m10);
         l9.setExit("crome", n9);
-        
+
         m8.setExit("exit", k9);
         m8.setExit("menu", l9);
-        m8.setExit("open email", m7);
-        
+        m8.setExit("email", m7);
+
         m7.setExit("exit", k9);
         m7.setExit("menu", l9);
-        
+
         m10.setExit("exit", k9);
         m10.setExit("menu", l9);
-        
+
         n9.setExit("exit", k9);
         n9.setExit("menu", l9);
-        
+
         g11.setExit("north", i11);
         g11.setExit("west", start);
-        
+
         i11.setExit("south", g11);
         i11.setExit("east", i13);
-        
+
         k11.setExit("west", k9);
-        
+
         g13.setExit("north", i13);
-        
+
         i13.setExit("north", k13);
         i13.setExit("south", g13);
         i13.setExit("east", i15);
         i13.setExit("west", i11);
-        
+
         k13.setExit("south", i13);
-        
+
         i15.setExit("west", i13);
 
         currentRoom = start;  // starts the game at start
@@ -160,9 +160,10 @@ public class Game
         //NPCs don't have the coding to move, but the same one can apear in differnt places
         npcs.add(new NPC(this, "The Chain Master", "Traveller, you really must at least Try to escape.", c5, 0));
         npcs.add(new NPC(this, "A telescope", "Through the telescope you can see unknow constellations, you are a long way from home", g5, 0));
-        npcs.add(new NPC(this, "A dark shape", "*growl* *Hiss*", k5, 2));
+        npcs.add(new NPC(this, "The dark shape", "*growl* *Hiss* a claw rakes at you from the darkness", k5, 2));
         npcs.add(new NPC(this, "The Chain Master", "You should not be here", k7, 0));
-        npcs.add(new NPC(this, "the dark form", "*roar*", g11, 2));
+        npcs.add(new NPC(this, "The dark form", "*roar* dark purple teeth snap at you", g11, 2));
+        npcs.add(new NPC(this, "The Chain Master", "Are you looking for healing?", i15, -2));
     }
 
     /**
@@ -194,13 +195,7 @@ public class Game
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
-        for(NPC npc : npcs)
-        {
-            if(npc.getRoom() == currentRoom)
-            {
-                System.out.print(npc.getName() + " is standing there, ");
-            }
-        }
+        getNPC();
     }
 
     /**
@@ -290,13 +285,7 @@ public class Game
             previousRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
-            for(NPC npc : npcs)
-            {
-                if(npc.getRoom() == currentRoom)
-                {
-                    System.out.print(npc.getName() + " is standing there, ");
-                }
-            }
+            getNPC();
         }
     }
 
@@ -322,6 +311,7 @@ public class Game
     private void look()
     {
         System.out.println(currentRoom.getLongDescription());
+        getNPC();
     }
 
     /**
@@ -340,6 +330,7 @@ public class Game
         previousRoom = currentRoom;
         currentRoom = previousRoom;
         System.out.println(currentRoom.getLongDescription());
+        getNPC();
     }
 
     /**
@@ -350,6 +341,26 @@ public class Game
         currentRoom = new Room("You have died.");
         previousRoom = currentRoom;
         look();
+    }
+
+    /**
+     * checks for an NPC, and prompts the player if there is
+     */
+    private void getNPC()
+    {
+        for(NPC npc : npcs)
+        {
+            boolean npcPresent = false;
+            if(npc.getRoom() == currentRoom)
+            {
+                System.out.print(npc.getName() + " is standing there, ");
+                npcPresent = true;
+            }
+            if(npcPresent)
+            {
+                System.out.println("type 'talk' to interact with them");
+            }
+        }
     }
 
     /**
@@ -365,6 +376,7 @@ public class Game
             }
         }
     }
+
     /**
      * @return the current room
      */
@@ -372,7 +384,7 @@ public class Game
     {
         return currentRoom;
     }
-    
+
     /**
      * @return the player character
      */
