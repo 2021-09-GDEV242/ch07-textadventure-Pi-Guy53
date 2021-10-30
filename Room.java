@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * stores a reference to the neighboring room.
  * 
  * @author  Mihail Vaporakis
- * @version 2021.10.28
+ * @version 2021.10.30
  */
 
 public class Room 

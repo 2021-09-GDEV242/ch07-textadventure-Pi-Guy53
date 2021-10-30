@@ -4,7 +4,7 @@
  * description, and a weight in grams.
  *
  * @author Mihail Vaporakis
- * @version 2021.10.28
+ * @version 2021.10.30
  */
 public class Item
 {

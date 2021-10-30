@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *  executes the commands that the parser returns.
  * 
  * @author  Mihail Vaporakis
- * @version 2021.10.28
+ * @version 2021.10.30
  */
 
 public class Game 
@@ -43,36 +43,37 @@ public class Game
         Room i5, k5, g7, i7, k7;
         Room i9, k9, l9, g11, i11;
         Room k11, g13, i13, k13, i15;
-        Room m8, m10, n9;
+        Room m8, m10, n9, m7;
         
         // create the rooms
-        start = new Room("outside the main entrance of the university");
-        i3 = new Room("outside the main entrance of the university");
-        c5 = new Room("outside the main entrance of the university");
-        e5 = new Room("outside the main entrance of the university");
-        g5 = new Room("outside the main entrance of the university");
+        start = new Room("dropped inside of a small metal room. Glowing blue lights flicker along the ceiling.");
+        i3 = new Room("in a dead end.");
+        c5 = new Room("in a dead end.");
+        e5 = new Room("in a short section of hallway. .\n A set of 7 long parallel gouges mar the east wall...");
+        g5 = new Room("in a large obervetory");
         
-        i5 = new Room("outside the main entrance of the university");
-        k5 = new Room("outside the main entrance of the university");
-        g7 = new Room("outside the main entrance of the university");
-        i7 = new Room("outside the main entrance of the university");
-        k7 = new Room("outside the main entrance of the university");
+        i5 = new Room("in a tee junction, three doors lead off, other than that, the room is bare.");
+        k5 = new Room("in what appears to be a barracks. You can hear a soft growl .\n coming from the back corrner.");
+        g7 = new Room("what looks like a normal tee juntion, but only the east, .\n and west doors can open. The north door is locked.");
+        i7 = new Room("a dark hall, the lighting in this section appears to be offline,.\n and details are hard to make out.");
+        k7 = new Room("a Server farm. The hum of the fans provides a constent low drone. .\n What would need this much prossesing though?");
         
-        i9 = new Room("outside the main entrance of the university");
-        k9 = new Room("outside the main entrance of the university");
-        l9 = new Room("outside the main entrance of the university");
-        g11 = new Room("outside the main entrance of the university");
-        i11 = new Room("outside the main entrance of the university");
+        i9 = new Room("locked out of the south doorway, it just won't budge. .\n The lights have dimmed slightly from the previous room, .\n but you can still barely see.");
+        k9 = new Room("in a work room, there is a computer terminal on the desk .\n in front of you. The lights along its side shows it .\n is operational.");
+        l9 = new Room("logged into the computer, there are only 3 apps available though");
+        g11 = new Room("startled by a dark form in the hallway. .\n Despite the electice lights, there are still dark pockets of shadow.");
+        i11 = new Room("walking though a smaller hallway than then before, .\n barely half a meter wide. .\n but you can see 7 parallel gouges on the walls an ceiling .\n each at least 3 cm deep.");
         
-        k11 = new Room("outside the main entrance of the university");
-        g13 = new Room("outside the main entrance of the university");
-        i13 = new Room("outside the main entrance of the university");
-        k13 = new Room("outside the main entrance of the university");
-        i15 = new Room("outside the main entrance of the university");
+        k11 = new Room("");
+        g13 = new Room("");
+        i13 = new Room("");
+        k13 = new Room("");
+        i15 = new Room("");
         
         m8 = new Room("");
         m10 = new Room("");
         n9 = new Room("");
+        m7 = new Room("");
         
         // initialise room exits
         start.setExit("north", i9);
@@ -95,9 +96,9 @@ public class Game
         
         k5.setExit("south", i5);
         
-        g7.setExit("north", i7);
         g7.setExit("east", start);
         g7.setExit("west", g5);
+        //no north door, "Its a trap!"
         
         i7.setExit("south", g7);
         i7.setExit("east", i9);
@@ -106,8 +107,8 @@ public class Game
         k7.setExit("east", k9);
         
         i9.setExit("north", k9);
-        i9.setExit("south", start);
         i9.setExit("west", i7);
+        //no south door, "Its a trap!"
         
         k9.setExit("use computer", l9);
         k9.setExit("south", i9);
@@ -118,6 +119,19 @@ public class Game
         l9.setExit("mail", m8);
         l9.setExit("renpy", m10);
         l9.setExit("crome", n9);
+        
+        m8.setExit("exit", k9);
+        m8.setExit("menu", l9);
+        m8.setExit("open email", m7);
+        
+        m7.setExit("exit", k9);
+        m7.setExit("menu", l9);
+        
+        m10.setExit("exit", k9);
+        m10.setExit("menu", l9);
+        
+        n9.setExit("exit", k9);
+        n9.setExit("menu", l9);
         
         g11.setExit("north", i11);
         g11.setExit("west", start);
@@ -142,7 +156,13 @@ public class Game
         previousRoom = start;
 
         //Add the NPCs
-        npcs.add(new NPC("Joe", "Dialog", ##));
+        npcs.add(new NPC(this, "The Chain Master", "Welcome traveller. Prepare to meet your fate.", start, 0));
+        //NPCs don't have the coding to move, but the same one can apear in differnt places
+        npcs.add(new NPC(this, "The Chain Master", "Traveller, you really must at least Try to escape.", c5, 0));
+        npcs.add(new NPC(this, "A telescope", "Through the telescope you can see unknow constellations, you are a long way from home", g5, 0));
+        npcs.add(new NPC(this, "A dark shape", "*growl* *Hiss*", k5, 2));
+        npcs.add(new NPC(this, "The Chain Master", "You should not be here", k7, 0));
+        npcs.add(new NPC(this, "the dark form", "*roar*", g11, 2));
     }
 
     /**
@@ -169,8 +189,8 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the World of Games and Fate!");
+        System.out.println("World of Games and Fate is an adventure of peril, and survival.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -239,8 +259,8 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("You are lost. You are NOT alone. You wander");
+        System.out.println("through a mysterious complex.");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
@@ -351,5 +371,13 @@ public class Game
     public Room getRoom()
     {
         return currentRoom;
+    }
+    
+    /**
+     * @return the player character
+     */
+    public Player getPlayer()
+    {
+        return player;
     }
 }
