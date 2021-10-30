@@ -43,7 +43,8 @@ public class Game
         Room i5, k5, g7, i7, k7;
         Room i9, k9, l9, g11, i11;
         Room k11, g13, i13, k13, i15;
-
+        Room m8, m10, n9;
+        
         // create the rooms
         start = new Room("outside the main entrance of the university");
         i3 = new Room("outside the main entrance of the university");
@@ -68,6 +69,10 @@ public class Game
         i13 = new Room("outside the main entrance of the university");
         k13 = new Room("outside the main entrance of the university");
         i15 = new Room("outside the main entrance of the university");
+        
+        m8 = new Room("");
+        m10 = new Room("");
+        n9 = new Room("");
         
         // initialise room exits
         start.setExit("north", i9);
@@ -100,20 +105,41 @@ public class Game
         
         k7.setExit("east", k9);
         
-        i9.setExit("east", ##);
-        k9.setExit("east", ##);
-        l9.setExit("east", ##);
-        g11.setExit("east", ##);
-        i11.setExit("east", ##);
+        i9.setExit("north", k9);
+        i9.setExit("south", start);
+        i9.setExit("west", i7);
         
-        k11.setExit("east", ##);
-        g13.setExit("east", ##);
-        i13.setExit("east", ##);
-        k13.setExit("east", ##);
-        i15.setExit("east", ##);
+        k9.setExit("use computer", l9);
+        k9.setExit("south", i9);
+        k9.setExit("east", k11);
+        k9.setExit("west", k7);
+        
+        l9.setExit("exit", k9);
+        l9.setExit("mail", m8);
+        l9.setExit("renpy", m10);
+        l9.setExit("crome", n9);
+        
+        g11.setExit("north", i11);
+        g11.setExit("west", start);
+        
+        i11.setExit("south", g11);
+        i11.setExit("east", i13);
+        
+        k11.setExit("west", k9);
+        
+        g13.setExit("north", i13);
+        
+        i13.setExit("north", k13);
+        i13.setExit("south", g13);
+        i13.setExit("east", i15);
+        i13.setExit("west", i11);
+        
+        k13.setExit("south", i13);
+        
+        i15.setExit("west", i13);
 
-        currentRoom = outside;  // start game outside
-        previousRoom = outside;
+        currentRoom = start;  // starts the game at start
+        previousRoom = start;
 
         //Add the NPCs
         npcs.add(new NPC("Joe", "Dialog", ##));
