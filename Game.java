@@ -70,17 +70,35 @@ public class Game
         i15 = new Room("outside the main entrance of the university");
         
         // initialise room exits
-        start.setExit("east", ##);
-        i3.setExit("east", ##);
-        c5.setExit("east", ##);
-        e5.setExit("east", ##);
-        g5.setExit("east", ##);
+        start.setExit("north", i9);
+        start.setExit("west", g7);
+        start.setExit("east", g11);
         
-        i5.setExit("east", ##);
-        k5.setExit("east", ##);
-        g7.setExit("east", ##);
-        i7.setExit("east", ##);
-        k7.setExit("east", ##);
+        i3.setExit("east", i5);
+        
+        c5.setExit("north", e5);
+        
+        e5.setExit("north", g5);
+        e5.setExit("south", c5);
+        
+        g5.setExit("east", g7);
+        g5.setExit("south", e5);
+        
+        i5.setExit("north", k5);
+        i5.setExit("east", i7);
+        i5.setExit("west", i3);
+        
+        k5.setExit("south", i5);
+        
+        g7.setExit("north", i7);
+        g7.setExit("east", start);
+        g7.setExit("west", g5);
+        
+        i7.setExit("south", g7);
+        i7.setExit("east", i9);
+        i7.setExit("west", i5);
+        
+        k7.setExit("east", k9);
         
         i9.setExit("east", ##);
         k9.setExit("east", ##);
