@@ -9,7 +9,7 @@ public class Player
 {
     private int health;
     private ArrayList<Item> inventory;  //Might not be used at this time
-    private int carryWeight;            //Will be used with the inventory
+    private int carryWeight;            //Will be used with the inventory system
     private Game game;
     /**
      * Constructor for objects of class Player
@@ -42,5 +42,10 @@ public class Player
             System.out.println("You collapse to the floor as your vision fades to black");
             game.playerDeath();
         }
+    }
+    
+    public void checkInventory()
+    {
+        System.out.println("Your inventory is currently empty");
     }
 }

@@ -10,6 +10,7 @@ public class Item
 {
     private String description;
     private int weight;
+    private boolean isTaken = false;    //ground work for potential inventory system
     
     /**
      * Constructor for objects of class item
@@ -36,5 +37,13 @@ public class Item
     public int getWeight()
     {
         return weight;
+    }
+    
+    /**
+     * @return whether the item has been picked up or not
+     */
+    public boolean pickedUp()
+    {
+        return isTaken;
     }
 }

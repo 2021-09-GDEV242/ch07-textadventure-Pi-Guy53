@@ -39,36 +39,66 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room start, i3, c5, e5, g5;
+        Room i5, k5, g7, i7, k7;
+        Room i9, k9, l9, g11, i11;
+        Room k11, g13, i13, k13, i15;
 
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
-
+        start = new Room("outside the main entrance of the university");
+        i3 = new Room("outside the main entrance of the university");
+        c5 = new Room("outside the main entrance of the university");
+        e5 = new Room("outside the main entrance of the university");
+        g5 = new Room("outside the main entrance of the university");
+        
+        i5 = new Room("outside the main entrance of the university");
+        k5 = new Room("outside the main entrance of the university");
+        g7 = new Room("outside the main entrance of the university");
+        i7 = new Room("outside the main entrance of the university");
+        k7 = new Room("outside the main entrance of the university");
+        
+        i9 = new Room("outside the main entrance of the university");
+        k9 = new Room("outside the main entrance of the university");
+        l9 = new Room("outside the main entrance of the university");
+        g11 = new Room("outside the main entrance of the university");
+        i11 = new Room("outside the main entrance of the university");
+        
+        k11 = new Room("outside the main entrance of the university");
+        g13 = new Room("outside the main entrance of the university");
+        i13 = new Room("outside the main entrance of the university");
+        k13 = new Room("outside the main entrance of the university");
+        i15 = new Room("outside the main entrance of the university");
+        
         // initialise room exits
-        outside.setExit("east", theater);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
-
-        theater.setExit("west", outside);
-
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        outside.addItem("book", 13);
+        start.setExit("east", ##);
+        i3.setExit("east", ##);
+        c5.setExit("east", ##);
+        e5.setExit("east", ##);
+        g5.setExit("east", ##);
+        
+        i5.setExit("east", ##);
+        k5.setExit("east", ##);
+        g7.setExit("east", ##);
+        i7.setExit("east", ##);
+        k7.setExit("east", ##);
+        
+        i9.setExit("east", ##);
+        k9.setExit("east", ##);
+        l9.setExit("east", ##);
+        g11.setExit("east", ##);
+        i11.setExit("east", ##);
+        
+        k11.setExit("east", ##);
+        g13.setExit("east", ##);
+        i13.setExit("east", ##);
+        k13.setExit("east", ##);
+        i15.setExit("east", ##);
 
         currentRoom = outside;  // start game outside
         previousRoom = outside;
 
-        //Add NPCs
-        npcs.add(new NPC("Joe", "Dialog", office));
+        //Add the NPCs
+        npcs.add(new NPC("Joe", "Dialog", ##));
     }
 
     /**
@@ -235,7 +265,7 @@ public class Game
      */
     private void checkInventory()
     {
-        System.out.println("Your inventory is currently empty");
+        player.checkInventory();
     }
 
     /**
@@ -270,5 +300,12 @@ public class Game
                 npc.talk();
             }
         }
+    }
+    /**
+     * @return the current room
+     */
+    public Room getRoom()
+    {
+        return currentRoom;
     }
 }

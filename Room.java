@@ -54,7 +54,7 @@ public class Room
     {
         items.add(new Item(itemInfo, itemWeight));
     }
-    
+
     /**
      * @return The short description of the room
      * (the one that was defined in the constructor).
@@ -109,7 +109,10 @@ public class Room
     {
         String returnString = "Items present:";
         for(Item item_ : items) {
-            returnString += " " + item_.getInfo();
+            if(item_.pickedUp() == false)
+            {
+                returnString += " " + item_.getInfo();
+            }
         }
         return returnString;
     }
