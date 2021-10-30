@@ -49,31 +49,31 @@ public class Game
         start = new Room("dropped inside of a small metal room. Glowing blue lights flicker along the ceiling.");
         i3 = new Room("in a dead end.");
         c5 = new Room("in a dead end.");
-        e5 = new Room("in a short section of hallway. .\n A set of 7 long parallel gouges mar the east wall...");
+        e5 = new Room("in a short section of hallway. \nA set of 7 long parallel gouges mar the east wall...");
         g5 = new Room("in a large obervetory");
 
         i5 = new Room("in a tee junction, three doors lead off, other than that, the room is bare.");
-        k5 = new Room("in what appears to be a barracks. You can hear a soft growl .\n coming from the back corrner.");
-        g7 = new Room("what looks like a normal tee juntion, but only the east, .\n and west doors can open. The north door is locked.");
-        i7 = new Room("a dark hall, the lighting in this section appears to be offline,.\n and details are hard to make out.");
-        k7 = new Room("a Server farm. The hum of the fans provides a constent low drone. .\n What would need this much prossesing though?");
+        k5 = new Room("in what appears to be a barracks. You can hear a soft growl \ncoming from the back corrner.");
+        g7 = new Room("what looks like a normal tee juntion, but only the east, \nand west doors can open. The north door is locked.");
+        i7 = new Room("a dark hall, the lighting in this section appears to be offline,\nand details are hard to make out.");
+        k7 = new Room("a Server farm. The hum of the fans provides a constent low drone. \nWhat would need this much prossesing though?");
 
-        i9 = new Room("locked out of the south doorway, it just won't budge. .\n The lights have dimmed slightly from the previous room, .\n but you can still barely see.");
-        k9 = new Room("in a work room, there is a computer terminal on the desk .\n in front of you. The lights along its side shows it .\n is operational.");
-        l9 = new Room("logged into the computer. The background is of the night sky, but with 5 moons. .\n there are only 3 apps available though");
-        g11 = new Room("startled by a dark form in the hallway. .\n Despite the electice lights, there are still dark pockets of shadow.");
-        i11 = new Room("walking though a smaller hallway than then before, .\n barely half a meter wide. .\n but you can see 7 parallel gouges on the walls an ceiling .\n each at least 3 cm deep.");
+        i9 = new Room("locked out of the south doorway, it just won't budge. \nThe lights have dimmed slightly from the previous room, \nbut you can still barely see.");
+        k9 = new Room("in a work room, there is a computer terminal on the desk \nin front of you. The lights along its side shows it \nis operational.");
+        l9 = new Room("logged into the computer. The background is of the night sky, but with 5 moons. \nthere are only 3 apps available though");
+        g11 = new Room("startled by a dark form in the hallway. \nDespite the electice lights, there are still dark pockets of shadow.");
+        i11 = new Room("walking though a smaller hallway than then before, \nbarely half a meter wide. \nbut you can see 7 parallel gouges on the walls an ceiling \neach at least 3 cm deep.");
 
         k11 = new Room("what looks like a janitors closet.");
-        g13 = new Room("in an empty hanger. There are no ships, but the though the .\n shielded opening you can see a dying star.");
+        g13 = new Room("in an empty hanger. There are no ships, but the though the \nshielded opening you can see a dying star.");
         i13 = new Room("in yet another 4 way hub. The lights in here are orange rather than light blue.");
-        k13 = new Room("unsure of what you are seeing. There looks to be a tree .\n made of rock crystal growing out of the floor.");
+        k13 = new Room("unsure of what you are seeing. There looks to be a tree \nmade of rock crystal growing out of the floor.");
         i15 = new Room("in a medical bay. Locked cabinets line the walls.");
 
-        m8 = new Room("looking are an ancient email server. Cobwebs dust most of the messages... .\n there is one newer message though");
-        m10 = new Room("opening the Ren'py application. .\n there are no files present");
-        n9 = new Room("now finidng out that a space ship does not have the internet .\n needed to run a web browser.");
-        m7 = new Room("reading the newst email, it reads. .\n \"What are you doing on my ship.\"");
+        m8 = new Room("looking are an ancient email server. Cobwebs dust most of the messages... \nthere is one newer message though");
+        m10 = new Room("opening the Ren'py application. \nthere are no files present to open");
+        n9 = new Room("now finidng out that a space ship does not have the internet \nneeded to run a web browser.");
+        m7 = new Room("reading the newest email, it reads. \n\"What are you doing on my ship\"");
 
         // initialise room exits
         start.setExit("north", i9);
