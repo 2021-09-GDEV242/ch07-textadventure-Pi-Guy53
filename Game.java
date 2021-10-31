@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *  executes the commands that the parser returns.
  * 
  * @author  Mihail Vaporakis
- * @version 2021.10.30
+ * @version 2021.10.31
  */
 
 public class Game 
