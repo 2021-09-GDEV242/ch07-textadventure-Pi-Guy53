@@ -22,6 +22,10 @@ public class Game
     private Room currentRoom;
     private Room previousRoom;
     private Player player;
+    //NPCs are Stored in the Game class instead of the Room class for 2 reasons
+    // 1) so NPCs will eventually be able to move around via code, rather than several NPCs of the same name
+    // code driven movement will not be included due to time constraints
+    // 2) NPCs are able to get a Game class referance without having to pass the Game class through Rooms, and then to NPCs
     private ArrayList<NPC> npcs;
     /**
      * Create the game and initialise its internal map.
@@ -155,13 +159,20 @@ public class Game
         currentRoom = start;  // starts the game at start
         previousRoom = start;
 
+        start.addItem("chain", 100);
+        i15.addItem("bottle", 2);
+        i15.addItem("syringe", 3);
+        c5.addItem("piece of broken glass", 10);
+        k5.addItem("pool of blood", 0);
+        k13.addItem("crystal shard", 4);
+        
         //Add the NPCs
         npcs.add(new NPC(this, "The Chain Master", "Welcome traveller. Prepare to meet your fate.", start, 0));
         //NPCs don't have the coding to move, but the same one can apear in differnt places
         npcs.add(new NPC(this, "The Chain Master", "Traveller, you really must at least Try to escape.", c5, 0));
         npcs.add(new NPC(this, "A telescope", "Through the telescope you can see unknow constellations, you are a long way from home", g5, 0));
         npcs.add(new NPC(this, "The dark shape", "*growl* *Hiss* a claw rakes at you from the darkness", k5, 2));
-        npcs.add(new NPC(this, "The Chain Master", "You should not be here", k7, 0));
+        npcs.add(new NPC(this, "The Chain Master", "You should not be here. \n*a lighting bolt lances out at you", k7, 1));
         npcs.add(new NPC(this, "The dark form", "*roar* dark purple teeth snap at you", g11, 2));
         npcs.add(new NPC(this, "The Chain Master", "Are you looking for healing?", i15, -2));
     }

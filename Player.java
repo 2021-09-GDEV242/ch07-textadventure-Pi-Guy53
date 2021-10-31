@@ -3,11 +3,12 @@ import java.util.ArrayList;
  * Write a description of class Player here.
  *
  * @author Mihail Vaporakis
- * @version 2021.10.30
+ * @version 2021.10.31
  */
 public class Player
 {
     private int health;
+    private int maxHealth;
     private ArrayList<Item> inventory;  //Might not be used at this time
     private int carryWeight;            //Will be used with the inventory system
     private Game game;
@@ -18,6 +19,7 @@ public class Player
     {
         health = HP;
         game = controller;
+        maxHealth = health;
     }
     
     /**
@@ -28,6 +30,10 @@ public class Player
     public void playerDamaged(int dmg)
     {
         health = health - dmg;
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
         
         System.out.println("You have " + health + " HP left");
         checkDeath();
