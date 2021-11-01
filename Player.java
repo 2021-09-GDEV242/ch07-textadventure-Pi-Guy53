@@ -52,6 +52,9 @@ public class Player
         }
     }
 
+    /**
+     * Checks the players inventory
+     */
     public void checkInventory()
     {
         if(inventory.size() == 0)
@@ -68,9 +71,36 @@ public class Player
         }
     }
 
+    /**
+     * adds an item to the player inventory
+     * @param the item to add
+     */
+    
     public void addItem(Item item)
     {
         inventory.add(item);
         System.out.println("Added " + item.getName() + " to your inventory");
+    }
+    
+    public Item dropItem(String name)
+    {   
+        for(Item item_: inventory)
+        {
+            if(item_.getName().equals(name))
+            {
+                return item_;
+            }
+        }
+        
+        return null;
+    }
+    
+    /**
+     * removes an item from the inventory
+     * @param item to be removed 
+     */
+    public void removeItem(Item item)
+    {
+        inventory.remove(item);
     }
 }

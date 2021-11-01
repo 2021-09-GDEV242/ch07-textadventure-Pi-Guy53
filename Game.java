@@ -262,6 +262,10 @@ public class Game
             case TAKEITEM:
                 takeItem(command);
                 break;
+            
+            case DROPITEM:
+                dropItem(command);
+                break;
 
             case QUIT:
                 wantToQuit = quit(command);
@@ -428,6 +432,7 @@ public class Game
     
     /**
      * Pick up an item
+     * @param the command word
      */
     private void takeItem(Command command)
     {
@@ -446,7 +451,32 @@ public class Game
         else 
         {
             player.addItem(item);
-            item.pickedUp();
+            item.itemIsTaken(true);
+        }
+    }
+    
+    /**
+     * Drops an item
+     * @param command word
+     */
+    private void dropItem(Command command)
+    {
+        Item item;
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println("Drop what?");
+            return;
+        }
+    
+        item = player.dropItem(command.getSecondWord());
+        player.removeItem(item);
+        if (item == null) {
+            System.out.println("There is no item!");
+        }
+        else 
+        {
+            currentRoom.addItem(item.getName(), item.getWeight());
+            item.itemIsTaken(false);
         }
     }
 }

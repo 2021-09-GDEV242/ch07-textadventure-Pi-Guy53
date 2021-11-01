@@ -54,4 +54,13 @@ public class Item
     {
         return isTaken;
     }
+    
+    /**
+     * sets the isTaken value
+     * @param whether or not the item has been taken
+     */
+    public void itemIsTaken(boolean taken)
+    {
+        isTaken = taken;
+    }
 }
