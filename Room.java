@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * stores a reference to the neighboring room.
  * 
  * @author  Mihail Vaporakis
- * @version 2021.10.30
+ * @version 2021.11.1
  */
 
 public class Room 
@@ -115,5 +115,17 @@ public class Room
             }
         }
         return returnString;
+    }
+    
+    public Item returnItem(String itemName)
+    {
+        for(Item item_ : items)
+        {
+            if(item_.getName().equals(itemName))
+            {
+                return item_;
+            }
+        }
+        return null;
     }
 }

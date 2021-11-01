@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *  executes the commands that the parser returns.
  * 
  * @author  Mihail Vaporakis
- * @version 2021.10.31
+ * @version 2021.11.1
  */
 
 public class Game 
@@ -258,6 +258,10 @@ public class Game
             case EAT:
                 eatFood();
                 break;
+                
+            case TAKEITEM:
+                takeItem(command);
+                break;
 
             case QUIT:
                 wantToQuit = quit(command);
@@ -420,5 +424,29 @@ public class Game
     private void eatFood()
     {
         System.out.println("You pull food package out of your pocket, \n and consume the contents, you feel a bit better.");
+    }
+    
+    /**
+     * Pick up an item
+     */
+    private void takeItem(Command command)
+    {
+        Item item;
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println("Take what?");
+            return;
+        }
+        
+        item = currentRoom.returnItem(command.getSecondWord());
+        
+        if (item == null) {
+            System.out.println("There is no item!");
+        }
+        else 
+        {
+            player.addItem(item);
+            item.pickedUp();
+        }
     }
 }

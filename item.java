@@ -4,7 +4,7 @@
  * description, and a weight in grams.
  *
  * @author Mihail Vaporakis
- * @version 2021.10.30
+ * @version 2021.11.1
  */
 public class Item
 {
@@ -28,7 +28,7 @@ public class Item
      */
     public String getInfo()
     {
-        return "It is a " + description + " that weighs " + weight + " grams.";
+        return "It is a '" + description + "' that weighs " + weight + " grams.";
     }
     
     /**
@@ -37,6 +37,14 @@ public class Item
     public int getWeight()
     {
         return weight;
+    }
+    
+    /**
+     * @return the item description
+     */
+    public String getName()
+    {
+        return description;
     }
     
     /**

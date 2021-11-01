@@ -3,7 +3,7 @@ import java.util.ArrayList;
  * Write a description of class Player here.
  *
  * @author Mihail Vaporakis
- * @version 2021.10.31
+ * @version 2021.11.1
  */
 public class Player
 {
@@ -38,6 +38,7 @@ public class Player
         System.out.println("You have " + health + " HP left");
         checkDeath();
     }
+    
     /**
      * Checks if the player health has dropped below zero, if it has it sends a death message.
      */
@@ -53,5 +54,10 @@ public class Player
     public void checkInventory()
     {
         System.out.println("Your inventory is currently empty");
+    }
+    
+    public void addItem(Item item)
+    {
+        inventory.add(item);
     }
 }
