@@ -254,6 +254,10 @@ public class Game
             case TALK:
                 talkWithNPC();
                 break;
+                
+            case EAT:
+                eatFood();
+                break;
 
             case QUIT:
                 wantToQuit = quit(command);
@@ -408,5 +412,13 @@ public class Game
     public Player getPlayer()
     {
         return player;
+    }
+    
+    /**
+     * Eat command, does nothing but textual feedback
+     */
+    private void eatFood()
+    {
+        System.out.println("You pull food package out of your pocket, \n and consume the contents, you feel a bit better.");
     }
 }
