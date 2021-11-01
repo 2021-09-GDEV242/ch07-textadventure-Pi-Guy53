@@ -168,9 +168,9 @@ public class Game
         start.addItem("chain", 100);
         i15.addItem("bottle", 2);
         i15.addItem("syringe", 3);
-        c5.addItem("piece of broken glass", 10);
-        k5.addItem("pool of blood", 0);
-        k13.addItem("crystal shard", 4);
+        c5.addItem("piece_of_broken_glass", 10);
+        k5.addItem("pool_of_blood", 0);
+        k13.addItem("crystal_shard", 4);
         
         //Add the NPCs
         npcs.add(new NPC(this, "The Chain Master", "Welcome traveller. Prepare to meet your fate.", start, 0));

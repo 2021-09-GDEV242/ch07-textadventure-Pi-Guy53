@@ -117,6 +117,9 @@ public class Room
         return returnString;
     }
     
+    /**
+     * adds an item to the players inventory
+     */
     public Item returnItem(String itemName)
     {
         for(Item item_ : items)

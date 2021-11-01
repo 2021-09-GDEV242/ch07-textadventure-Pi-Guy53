@@ -9,8 +9,8 @@ public class Player
 {
     private int health;
     private int maxHealth;
-    private ArrayList<Item> inventory;  //Might not be used at this time
-    private int carryWeight;            //Will be used with the inventory system
+    private ArrayList<Item> inventory;
+    private int carryWeight;
     private Game game;
     /**
      * Constructor for objects of class Player
@@ -21,7 +21,7 @@ public class Player
         game = controller;
         maxHealth = health;
     }
-    
+
     /**
      * Removes health from the player, and prints the remainder
      * Could also be used to heal the player
@@ -34,11 +34,11 @@ public class Player
         {
             health = maxHealth;
         }
-        
+
         System.out.println("You have " + health + " HP left");
         checkDeath();
     }
-    
+
     /**
      * Checks if the player health has dropped below zero, if it has it sends a death message.
      */
@@ -50,14 +50,26 @@ public class Player
             game.playerDeath();
         }
     }
-    
+
     public void checkInventory()
     {
-        System.out.println("Your inventory is currently empty");
+        if(inventory.size() == 0)
+        {
+            System.out.println("Your inventory is currently empty");
+        }
+        else
+        {
+            System.out.println("You have: ");
+            for(Item item_ : inventory)
+            {
+                System.out.print(item_ +", ");
+            }
+        }
     }
-    
+
     public void addItem(Item item)
     {
         inventory.add(item);
+        System.out.println("Added " + item.getName() + " to your inventory");
     }
 }
