@@ -20,6 +20,7 @@ public class Player
         health = HP;
         game = controller;
         maxHealth = health;
+        inventory = new ArrayList<Item>();
     }
 
     /**
@@ -62,7 +63,7 @@ public class Player
             System.out.println("You have: ");
             for(Item item_ : inventory)
             {
-                System.out.print(item_ +", ");
+                System.out.print(item_.getName() +", ");
             }
         }
     }
