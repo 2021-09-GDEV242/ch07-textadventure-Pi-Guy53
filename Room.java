@@ -54,6 +54,15 @@ public class Room
     {
         items.add(new Item(itemInfo, itemWeight));
     }
+    
+    /**
+     * removes an item from the room
+     * @param item to be removed
+     */
+    public void removeItem(Item item)
+    {
+        items.remove(item);
+    }
 
     /**
      * @return The short description of the room
@@ -101,7 +110,7 @@ public class Room
     {
         return exits.get(direction);
     }
-    
+
     /**
      * @return the items present the room
      */
@@ -109,14 +118,11 @@ public class Room
     {
         String returnString = "Items present:";
         for(Item item_ : items) {
-            if(item_.pickedUp() == false)
-            {
-                returnString += " " + item_.getInfo();
-            }
+            returnString += " " + item_.getInfo();
         }
         return returnString;
     }
-    
+
     /**
      * adds an item to the players inventory
      * @param the item name to pick up

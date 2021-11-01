@@ -23,7 +23,7 @@ public class Game
         Game game = new Game();
         game.play();
     }
-    
+
     private Parser parser;
     private Room currentRoom;
     private Room previousRoom;
@@ -171,7 +171,7 @@ public class Game
         c5.addItem("piece_of_broken_glass", 10);
         k5.addItem("pool_of_blood", 0);
         k13.addItem("crystal_shard", 4);
-        
+
         //Add the NPCs
         npcs.add(new NPC(this, "The Chain Master", "Welcome traveller. Prepare to meet your fate.", start, 0));
         //NPCs don't have the coding to move, but the same one can apear in differnt places
@@ -254,15 +254,15 @@ public class Game
             case TALK:
                 talkWithNPC();
                 break;
-                
+
             case EAT:
                 eatFood();
                 break;
-                
+
             case TAKEITEM:
                 takeItem(command);
                 break;
-            
+
             case DROPITEM:
                 dropItem(command);
                 break;
@@ -421,7 +421,7 @@ public class Game
     {
         return player;
     }
-    
+
     /**
      * Eat command, does nothing but textual feedback
      */
@@ -429,7 +429,7 @@ public class Game
     {
         System.out.println("You pull food package out of your pocket, \n and consume the contents, you feel a bit better.");
     }
-    
+
     /**
      * Pick up an item
      * @param the command word
@@ -442,19 +442,19 @@ public class Game
             System.out.println("Take what?");
             return;
         }
-        
+
         item = currentRoom.returnItem(command.getSecondWord());
-        
+
         if (item == null) {
             System.out.println("There is no item!");
         }
         else 
         {
             player.addItem(item);
-            item.itemIsTaken(true);
+            currentRoom.removeItem(item);
         }
     }
-    
+
     /**
      * Drops an item
      * @param command word
@@ -467,7 +467,7 @@ public class Game
             System.out.println("Drop what?");
             return;
         }
-    
+
         item = player.dropItem(command.getSecondWord());
         player.removeItem(item);
         if (item == null) {
@@ -476,7 +476,6 @@ public class Game
         else 
         {
             currentRoom.addItem(item.getName(), item.getWeight());
-            item.itemIsTaken(false);
         }
     }
 }

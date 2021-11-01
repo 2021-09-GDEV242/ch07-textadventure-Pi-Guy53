@@ -10,7 +10,6 @@ public class Item
 {
     private String description;
     private int weight;
-    private boolean isTaken = false;    //ground work for potential inventory system
     
     /**
      * Constructor for objects of class item
@@ -45,22 +44,5 @@ public class Item
     public String getName()
     {
         return description;
-    }
-    
-    /**
-     * @return whether the item has been picked up or not
-     */
-    public boolean pickedUp()
-    {
-        return isTaken;
-    }
-    
-    /**
-     * sets the isTaken value
-     * @param whether or not the item has been taken
-     */
-    public void itemIsTaken(boolean taken)
-    {
-        isTaken = taken;
     }
 }
