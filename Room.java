@@ -22,6 +22,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
     private ArrayList<Item> items;              //stores an ArrayList of items in this room
+    private String toBeRemoved;                 //the key string to remove from the exit hashmap
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
@@ -40,9 +41,29 @@ public class Room
      * @param direction The direction of the exit.
      * @param neighbor  The room to which the exit leads.
      */
-    public void setExit(String direction, Room neighbor) 
+    public void setExit(String direction, Room neighbor)
     {
         exits.put(direction, neighbor);
+    }
+
+    /**
+     * Sets a room to be removesd after one use
+     * @param the exit to be removed
+     */
+    public void setRemoveExit(String exit)
+    {
+        toBeRemoved = exit;
+    }
+
+    /**
+     * removes a room exit
+     */    
+    public void removeExit()
+    {
+        if(toBeRemoved != null)
+        {
+            exits.remove(toBeRemoved);
+        }
     }
 
     /**
@@ -54,7 +75,7 @@ public class Room
     {
         items.add(new Item(itemInfo, itemWeight));
     }
-    
+
     /**
      * removes an item from the room
      * @param item to be removed

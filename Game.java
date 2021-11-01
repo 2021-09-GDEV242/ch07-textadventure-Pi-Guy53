@@ -159,6 +159,8 @@ public class Game
         i13.setExit("west", i11);
 
         k13.setExit("south", i13);
+        k13.setExit("tree", c5);
+        k13.setRemoveExit("tree");
 
         i15.setExit("west", i13);
 
@@ -315,6 +317,7 @@ public class Game
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             getNPC();
+            previousRoom.removeExit();
         }
     }
 
