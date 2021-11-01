@@ -18,6 +18,12 @@ import java.util.ArrayList;
 
 public class Game 
 {
+    public static void main(String[] args)
+    {
+        Game game = new Game();
+        game.play();
+    }
+    
     private Parser parser;
     private Room currentRoom;
     private Room previousRoom;
