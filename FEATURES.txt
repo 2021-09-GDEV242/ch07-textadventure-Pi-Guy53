@@ -1,0 +1,21 @@
+B level: 
+1) Added items with weight and description.
+2) Rooms can hold multiple items.
+3) Back command
+
+A level:
+1) NPCs with clues
+2) charged transporter (one time use door)
+3) health system
+
+Extra: These are in no particular order
+1) Added a Player that can carry one or more items.
+2) NPCs "move" around
+3) one way 'trapped' doors
+4) player can take an item from a room
+5) player can drop an item in a room
+6) player can hold multiple items (infinite)
+7) rooms can hold multiple items
+8) Inventory command
+9) Player can die
+10) player can be damaged
